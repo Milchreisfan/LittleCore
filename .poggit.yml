@@ -1,7 +1,7 @@
 --- # Poggit-CI Manifest. Open the CI at https://poggit.pmmp.io/ci/Milchreisfan/LittleCore
 build-by-default: true
 branches:
-- master
+- main
 projects:
   LittleCore:
     path: ""
