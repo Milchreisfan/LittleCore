@@ -28,6 +28,7 @@ Ein Core für PocketMine-MP | A Core for PocketMine-MP
 - /feed
 - /heal
 - /chatclear
+- /fly
 
 # Berechtigungen | Permissions: #
 
@@ -44,3 +45,4 @@ Ein Core für PocketMine-MP | A Core for PocketMine-MP
 - /feed -> lc.feed
 - /heal -> lc.heal
 - /chatclear -> lc.chatclear
+- /fly -> lc.fly
