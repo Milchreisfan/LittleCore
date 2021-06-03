@@ -6,7 +6,7 @@ Ein Core für PocketMine-MP | A Core for PocketMine-MP
 - ChatClear -> https://github.com/Kay313/ClearChat
 
 # Sprache | Language: #
-- Deutsch | German: In Arbeit... | In progress...
+- Deutsch | German: Version: 1.0.0 | Version: 1.0.0
 - Englisch | English: Noch nicht unterstützt... | Not supported yet...
 
 # Information #
@@ -28,3 +28,19 @@ Ein Core für PocketMine-MP | A Core for PocketMine-MP
 - /feed
 - /heal
 - /chatclear
+
+# Berechtigungen | Permissions: #
+
+- /noon -> lc.noon
+- /day -> lc.day
+- /noon -> lc.noon
+- /sunset -> lc.sunset
+- /night -> lc.night
+- /midnight -> lc.midnight
+- /gm0 -> lc.gm0
+- /gm1 -> lc.gm1
+- /gm2 -> lc.gm2
+- /gm3 -> lc.gm3
+- /feed -> lc.feed
+- /heal -> lc.heal
+- /chatclear -> lc.chatclear
