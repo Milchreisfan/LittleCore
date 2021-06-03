@@ -4,6 +4,8 @@ branches:
 - master
 projects:
   LittleCore:
+    version: 1.1.0
+    description: Ein kleiner Core | A little core 
     icon: "lc.png"
     path: ""
 ...
