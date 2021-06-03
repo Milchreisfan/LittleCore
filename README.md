@@ -2,8 +2,8 @@
 Ein Core für PocketMine-MP | A Core for PocketMine-MP
 
 # Danke | Thanks: #
-- Ban -> @tim03we
-- ChatClear -> @Kay313
+- Ban -> https://github.com/tim03we/AdvancedBan
+- ChatClear -> https://github.com/Kay313/ClearChat
 
 # Sprache | Language: #
 - Deutsch | German: In Arbeit... | In progress...
