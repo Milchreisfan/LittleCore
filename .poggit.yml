@@ -4,5 +4,6 @@ branches:
 - master
 projects:
   LittleCore:
+    icon: "lc.png"
     path: ""
 ...
