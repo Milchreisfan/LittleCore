@@ -11,7 +11,7 @@ https://discord.gg/QhVSn855zE
 - ChatClear -> https://github.com/Kay313/ClearChat
 
 # Sprache | Language: #
-- Deutsch | German: Version: 1.0.0 | Version: 1.0.0
+- Deutsch | German: Version: 1.1.0 | Version: 1.0.0
 - Englisch | English: Noch nicht unterstützt... | Not supported yet...
 
 # Information #
