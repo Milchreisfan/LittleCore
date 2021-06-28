@@ -34,6 +34,12 @@ https://discord.gg/QhVSn855zE
 - /heal
 - /chatclear
 - /fly
+- /fr
+- /inv
+- /wb
+- /jump
+- /speed
+- /nv
 
 # Berechtigungen | Permissions: #
 
@@ -51,3 +57,9 @@ https://discord.gg/QhVSn855zE
 - /heal -> lc.heal
 - /chatclear -> lc.chatclear
 - /fly -> lc.fly
+- /fr -> lc.fr
+- /inv -> lc.inv
+- /wb -> lc.wb
+- /jump -> lc.jump
+- /speed -> lc.speed
+- /nv -> lc.nv
