@@ -63,3 +63,7 @@ https://discord.gg/QhVSn855zE
 - /jump -> lc.jump
 - /speed -> lc.speed
 - /nv -> lc.nv
+
+# Hilfe? | Support?#
+- Joine meinen Discord!
+- Join my discord!
