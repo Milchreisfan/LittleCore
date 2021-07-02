@@ -64,6 +64,6 @@ https://discord.gg/QhVSn855zE
 - /speed -> lc.speed
 - /nv -> lc.nv
 
-# Hilfe? | Support?#
+# Hilfe? | Support? #
 - Joine meinen Discord!
 - Join my discord!
