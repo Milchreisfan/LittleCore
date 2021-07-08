@@ -11,7 +11,7 @@ https://discord.gg/QhVSn855zE
 - ChatClear -> https://github.com/Kay313/ClearChat
 
 # Sprache | Language: #
-- Deutsch | German: Version: 1.3.0
+- Deutsch | German: Version: 1.4.0
 - Englisch | English: Noch nicht unterstützt... | Not supported yet...
 
 # Information #
@@ -31,6 +31,7 @@ https://discord.gg/QhVSn855zE
 - /gm2
 - /gm3
 - /feed
+- /hasteboost
 - /heal
 - /chatclear
 - /fly
@@ -54,6 +55,7 @@ https://discord.gg/QhVSn855zE
 - /gm2 -> lc.gm2
 - /gm3 -> lc.gm3
 - /feed -> lc.feed
+- /hasteboost -> lc.hasteboost
 - /heal -> lc.heal
 - /chatclear -> lc.chatclear
 - /fly -> lc.fly
