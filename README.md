@@ -11,8 +11,7 @@ https://discord.gg/QhVSn855zE
 - ChatClear -> https://github.com/Kay313/ClearChat
 
 # Sprache | Language: #
-- Deutsch | German: Version: 1.4.0
-- Englisch | English: Noch nicht unterstützt... | Not supported yet...
+Just change the messages in config.yml :D
 
 # Information #
 - Ban wird erst in V2 unterstützt sein.
@@ -41,6 +40,7 @@ https://discord.gg/QhVSn855zE
 - /jump
 - /speed
 - /nv
+- /dcinvite
 
 # Berechtigungen | Permissions: #
 
@@ -65,6 +65,7 @@ https://discord.gg/QhVSn855zE
 - /jump -> lc.jump
 - /speed -> lc.speed
 - /nv -> lc.nv
+- /dcinvite -> lc.dcinvite
 
 # Hilfe? | Support? #
 - Joine meinen Discord!
