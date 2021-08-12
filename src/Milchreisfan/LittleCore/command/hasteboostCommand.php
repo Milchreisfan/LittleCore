@@ -9,29 +9,33 @@ use pocketmine\Server;
 use pocketmine\entity\Effect;
 use pocketmine\entity\EffectInstance;
 use pocketmine\utils\TextFormat;
+use Datetime;
+use pocketmine\utils\Config;
 
 class hasteboostCommand extends Command {
 
     public function __construct()
     {
-        parent::__construct("hasteboost", "Aktiviere einen Abbaugeschwindkeits-Boost!");
+        parent::__construct("hasteboost", "Enable an haste boost!");
     }
+
 
     public function execute(CommandSender $sender, string $commandLabel, array $args)
     {
+        $c = new Config($this->getDataFolder() . "messages.yml", Config::YAML);
         if($sender instanceof Player) {
             $player = $sender->getPlayer();
             if(!$player->hasPermission("lc.hasteboost")) {
-                $player->sendMessage("§8[§bCore§8] §3» §4Du hast keine Rechte für diesen Befehl!");
+                $player->sendMessage(Main::PREFIX . $c->get("no-permissions"));
                 return;
             }
             foreach (Server::getInstance()->getOnlinePlayers() as $p) {
                 $eff = new EffectInstance(Effect::getEffect(3), 6000, 1, false);
                 $p->addEffect($eff);
-                $p->sendMessage("§8[§bCore§8] §3» §eDer Spieler" . "§6 " . $player->getName() . "§e" ." hat einen Abbaugeschwindigkeitesbooster aktiviert! Jeder hat nun 5 Minuten Eile.");
+                $p->sendMessage(Main::PREFIX . $c->get("hasteboost"));
             }
             return;
         }
-        $sender->sendMessage(TextFormat::RED . "Diesen Befehl kannst du nur Ingame ausführen.");
+        $sender->sendMessage(TextFormat::RED . $c->get("console"));
     }
 }

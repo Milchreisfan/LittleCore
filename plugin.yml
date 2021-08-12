@@ -1,6 +1,6 @@
 name: LittleCore
-version: 1.5.0
-api: 3.0.0, 4.0.0
+version: 1.6.0
+api: 3.0.0
 main: Milchreisfan\LittleCore\Main
 author: Milchreisfan
 description: Core für PocketMine-MP | A Core for PocketMine-MP

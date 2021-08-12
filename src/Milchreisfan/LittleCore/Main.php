@@ -38,11 +38,15 @@ use Milchreisfan\LittleCore\command\wbCommand;
 
 class Main extends PluginBase implements Listener {
 
-    public function onEnable() {
+    public const PREFIX = "§8[§bCore§8] §3»";
 
+    public function onEnable() {
+        
+        $this->saveResource("messages.yml");
         $this->getServer()->getCommandMap()->registerAll("littlecore", [
             new ccCommand(),
             new dayCommand(),
+            new dcCommand(),
             new ecCommand(),
             new feedCommand(),
             new flyCommand(),
@@ -64,19 +68,20 @@ class Main extends PluginBase implements Listener {
             new speedCommand(),
             new wbCommand()
         ]);
-        $this->getLogger()->info("LittleCore ist aufgewacht! - By Milchreisfan");
+        $this->getLogger()->info(self::PREFIX . "LittleCore ist aufgewacht! - By Milchreisfan");
     }
 
     public function onDisable() {
 
         $this->getScheduler()->cancelAllTasks();
-        $this->getLogger()->error("LittleCore ist eingeschlafen! - Error - Kontaktiere Milchreisfan bei GitHub!");
+        $this->getLogger()->error(self::PREFIX . "LittleCore ist eingeschlafen! - Error - Kontaktiere Milchreisfan bei GitHub!");
     }
 
     public function registerPermission(): void
     {
         DefaultPermissions::registerPermission(new Permission("lc.cc"));
         DefaultPermissions::registerPermission(new Permission("lc.day"));
+        DefaultPermissions::registerPermissions(new Permission("lc.dcinvite"));
         DefaultPermissions::registerPermission(new Permissiom("lc.ec"));
         DefaultPermissions::registerPermission(new Permission("lc.feed"));
         DefaultPermissions::registerPermission(new Permission("lc.fly"));

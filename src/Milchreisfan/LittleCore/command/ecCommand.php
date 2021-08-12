@@ -2,6 +2,7 @@
 
 namespace Milchreisfan\LittleCore\command;
 
+use Milchreisfan\LittleCore\Main;
 use pocketmine\command\Command;
 use pocketmine\command\CommandSender;
 use pocketmine\Player;
@@ -13,19 +14,21 @@ use pocketmine\nbt\tag\IntTag;
 use pocketmine\nbt\tag\StringTag;
 use pocketmine\tile\EnderChest;
 use pocketmine\tile\Tile;
+use pocketmine\utils\Config;
 
 class ecCommand extends Command {
 
     public function __construct()
     {
-        parent::__construct("ec", "Öffne deine Enderchest!");
+        parent::__construct("ec", "Open your enderchest!");
     }
 
     public function execute(CommandSender $sender, string $commandLabel, array $args) {
+        $c = new Config($this->getDataFolder() . "messages.yml", Config::YAML);
         if ($sender instanceof Player) {
             $player = $sender->getPlayer();
             if (!$player->hasPermission("lc.ec")) {
-                $player->sendMessage("§8[§bCore§8] §3» §4Du hast keine Rechte für diesen Befehl!");
+                $player->sendMessage(Main::PREFIX . $c->get("no-permissions"));
                 return;
             }
             $nbt = new CompoundTag("", [new StringTag("id", Tile::CHEST), new StringTag("CustomName", "EnderChest"), new IntTag("x", (int)floor($sender->x)), new IntTag("y", (int)floor($sender->y) - 4), new IntTag("z", (int)floor($sender->z))]);
@@ -38,9 +41,9 @@ class ecCommand extends Command {
 			$block->level->sendBlocks([$sender], [$block]);
 			$sender->getEnderChestInventory()->setHolderPosition($tile);
 			$sender->addWindow($sender->getEnderChestInventory());
-            $sender->sendMessage("§8[§bCore§8] §3» §fDu hast deine Enderchest geöffnet!");
+            $sender->sendMessage(Main::PREFIX . $c->get("enderchest"));
             return;
         }
-        $sender->sendMessage(TextFormat::RED . "Diesen Befehl kannst du nur Ingame ausführen.");
+        $sender->sendMessage(TextFormat::RED . $c->get("console"));
     }
 }

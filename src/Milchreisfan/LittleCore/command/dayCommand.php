@@ -2,35 +2,38 @@
 
 namespace Milchreisfan\LittleCore\command;
 
+use Milchreisfan\LittleCore\Main;
 use pocketmine\command\Command;
 use pocketmine\command\CommandSender;
 use pocketmine\Player;
 use pocketmine\Server;
 use pocketmine\utils\TextFormat;
+use pocketmine\utils\Config;
 
 class dayCommand extends Command
 {
 
     public function __construct()
     {
-        parent::__construct("day", "Ändere die Zeit zu Tag!");
+        parent::__construct("day", "Change the time to day!");
     }
 
 
     public function execute(CommandSender $sender, string $commandLabel, array $args)
     {
+        $c = new Config($this->getDataFolder() . "messages.yml", Config::YAML);
         if ($sender instanceof Player) {
             $player = $sender->getPlayer();
             if (!$player->hasPermission("lc.day")) {
-                $player->sendMessage("§8[§bCore§8] §3» §4Du hast keine Rechte für diesen Befehl!");
+                $player->sendMessage(Main::PREFIX . $c->get("no-permission"));
                 return;
             }
             $player->getLevel()->setTime(1000);
             foreach (Server::getInstance()->getOnlinePlayers() as $p) {
-                $p->sendMessage("§8[§bCore§8] §3» §eDer Spieler" . "§6 " . $player->getName() . "§e" . " hat die Zeit zu Tag geändert!");
+                $p->sendMessage(Main::PREFIX . $c->get("timechange-day"));
             }
             return;
         }
-        $sender->sendMessage(TextFormat::RED . "Diesen Befehl kannst du nur Ingame ausführen.");
+        $sender->sendMessage(TextFormat::RED . $c->get("console"));
     }
 }
