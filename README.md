@@ -45,6 +45,7 @@ Just change the messages in config.yml :D
 - /vanish
 - /info
 - /news
+- /itemid
 
 # Berechtigungen | Permissions: #
 
@@ -73,6 +74,7 @@ Just change the messages in config.yml :D
 - /vanish -> lc.vanish
 - /info -> lc.info
 - /news -> lc.news
+- /itemid -> lc.itemid
 
 # Hilfe? | Support? #
 - Joine meinen Discord!
