@@ -4,8 +4,9 @@ Ein Core für PocketMine-MP | A Core for PocketMine-MP
 # Discord: #
 - Trette dem LittleCore Discord bei!
 - Join the LittleCore discord!
-https://discord.gg/QhVSn855zE
-# Danke | Thanks: #
+https://discord.gg/QhVSn855z
+
+# Credits #
 
 - Ban -> https://github.com/tim03we/AdvancedBan
 - ChatClear -> https://github.com/Kay313/ClearChat
