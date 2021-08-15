@@ -41,6 +41,7 @@ Just change the messages in config.yml :D
 - /speed
 - /nv
 - /dcinvite
+- /vanish
 
 # Berechtigungen | Permissions: #
 
@@ -66,6 +67,7 @@ Just change the messages in config.yml :D
 - /speed -> lc.speed
 - /nv -> lc.nv
 - /dcinvite -> lc.dcinvite
+- /vanish -> lc.vanish
 
 # Hilfe? | Support? #
 - Joine meinen Discord!
