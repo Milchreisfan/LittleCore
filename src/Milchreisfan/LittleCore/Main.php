@@ -34,6 +34,7 @@ use Milchreisfan\LittleCore\command\nvCommand;
 use Milchreisfan\LittleCore\command\sunriseCommand;
 use Milchreisfan\LittleCore\command\sunsetCommand;
 use Milchreisfan\LittleCore\command\speedCommand;
+use Milchreisfan\LittleCore\command\vanishCommand;
 use Milchreisfan\LittleCore\command\wbCommand;
 
 class Main extends PluginBase implements Listener {
@@ -66,6 +67,7 @@ class Main extends PluginBase implements Listener {
             new sunriseCommand(),
             new sunsetCommand(),
             new speedCommand(),
+            new vanishCommand(),
             new wbCommand()
         ]);
         $this->getLogger()->info(self::PREFIX . "LittleCore ist aufgewacht! - By Milchreisfan");
@@ -101,6 +103,7 @@ class Main extends PluginBase implements Listener {
         DefaultPermissions::registerPermission(new Permission("lc.sunrise"));
         DefaultPermissions::registerPermission(new Permission("lc.sunset"));
         DefaultPermissions::registerPermission(new Permission("lc.speed"));
+        DefaultPermissions::registerPermission(new Permission("lc.vanish"));
         DeaufltPermissions::registerPermission(new Permission("lc.wb"));
     }
 }

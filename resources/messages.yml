@@ -102,3 +102,7 @@ fly-enable: "§aFly has been enabled!"
 
 # Enderchest #
 enderchest: "§aYou opened your enderchest!"
+
+# Vanish #
+vanish-disable: "§cVanish has been disabled!"
+vanish-enable: "§aVanish has been enabled!"

@@ -10,6 +10,8 @@ use pocketmine\entity\Effect;
 use pocketmine\entity\EffectInstance;
 use pocketmine\utils\TextFormat;
 use Datetime;
+use DateInterval;
+use pocketmine\event\Listener;
 use pocketmine\utils\Config;
 
 class hasteboostCommand extends Command {
@@ -18,7 +20,6 @@ class hasteboostCommand extends Command {
     {
         parent::__construct("hasteboost", "Enable an haste boost!");
     }
-
 
     public function execute(CommandSender $sender, string $commandLabel, array $args)
     {
