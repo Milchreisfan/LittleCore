@@ -15,15 +15,19 @@
 # lc.gm3 -> /gm3
 # lc.hasteboost -> /hasteboost
 # lc.heal -> /heal
+# lc.info -> /info
+# lc.itemid -> /itemid
 # lc.inv -> /inv
 # lc.jump /jump
 # lc.midnight -> /midnight
+# lc.news -> /news
 # lc.night -> /night
 # lc.noon -> /noon
 # lc.nv -> /nv
 # lc.sunrise -> /sunrise
 # lc.sunset -> /sunset
 # lc.speed -> /speed
+# lc.vanish -> /vanish
 # lc.wb -> /wb
 
 # colors #
