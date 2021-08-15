@@ -106,3 +106,9 @@ enderchest: "§aYou opened your enderchest!"
 # Vanish #
 vanish-disable: "§cVanish has been disabled!"
 vanish-enable: "§aVanish has been enabled!"
+
+# Server-Informations #
+information: "§eType informations about your server."
+
+# News #
+news: "§eType about news maybe updates or changes :D"

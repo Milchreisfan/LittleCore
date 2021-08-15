@@ -25,9 +25,11 @@ use Milchreisfan\LittleCore\command\gm2Command;
 use Milchreisfan\LittleCore\command\gm3Command;
 use Milchreisfan\LittleCore\command\hasteboostCommand;
 use Milchreisfan\LittleCore\command\healCommand;
+use Milchreisfan\LittleCore\command\infoCommand;
 use Milchreisfan\LittleCore\command\invCommand;
 use Milchreisfan\LittleCore\command\jumpCommand;
 use Milchreisfan\LittleCore\command\midnightCommand;
+use Milchreisfan\LittleCore\command\newsCommand;
 use Milchreisfan\LittleCore\command\nightCommand;
 use Milchreisfan\LittleCore\command\noonCommand;
 use Milchreisfan\LittleCore\command\nvCommand;
@@ -58,9 +60,11 @@ class Main extends PluginBase implements Listener {
             new gm3Command(),
             new hasteboostCommand(),
             new healCommand(),
+            new infoCommand(),
             new invCommand(),
             new jumpCommand(),
             new midnightCommand(),
+            new newsCommand(),
             new nightCommand(),
             new noonCommand(),
             new nvCommand(),
@@ -94,9 +98,11 @@ class Main extends PluginBase implements Listener {
         DefaultPermissions::registerPermission(new Permission("lc.gm3"));
         DefaultPermissions::registerPermission(new Permission("lc.hasteboost"));
         DefaultPermissions::registerPermission(new Permission("lc.heal"));
+        DefaultPermissions::registerPermission(new Permission("lc.info"));
         DefaultPermissions::registerPermission(new Permission("lc.inv"));
         DefaultPermissions::registerPermission(new Permission("lc.jump"));
     	DefaultPermissions::registerPermission(new Permission("lc.midnight"));
+        DefaultPermissions::registerPermission(new Permission("lc.news"));
         DefaultPermissions::registerPermission(new Permission("lc.night"));
         DefaultPermissions::registerPermission(new Permission("lc.noon"));
         DefaultPermissions::registerPermission(new Permission("lc.nv"));
