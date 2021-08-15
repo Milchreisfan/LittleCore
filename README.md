@@ -42,6 +42,8 @@ Just change the messages in config.yml :D
 - /nv
 - /dcinvite
 - /vanish
+- /info
+- /news
 
 # Berechtigungen | Permissions: #
 
@@ -68,6 +70,8 @@ Just change the messages in config.yml :D
 - /nv -> lc.nv
 - /dcinvite -> lc.dcinvite
 - /vanish -> lc.vanish
+- /info -> lc.info
+- /news -> lc.news
 
 # Hilfe? | Support? #
 - Joine meinen Discord!
