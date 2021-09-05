@@ -29,6 +29,7 @@
 # lc.speed -> /speed
 # lc.vanish -> /vanish
 # lc.wb -> /wb
+# lc.shutdown -> /shutdown
 
 # colors #
 
@@ -116,3 +117,11 @@ information: "§eType informations about your server."
 
 # News #
 news: "§eType about news maybe updates or changes :D"
+
+# Shutdown #
+# shutdownstart -> the message will send it to the player who runs /shutdown # shutdown-now -> send a message to the commandsender that the server will now crash
+shutdownstart: "§4The shutdown will start!"
+shutdown-popup: "§cSERVER-SHUTDOWN"
+shutdown-title: "§cTHE SERVER WILL CRASH!"
+shutdown-message: "§l§o§cTHE SERVER WILL SHUTDOWN! DON'T DO ANYTHING"
+shutdown-now: "§4The server is now crashing."

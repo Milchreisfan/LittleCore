@@ -1,5 +1,10 @@
 <?php
 
+/**
+ * LittleCore - By Milchreisfan
+ * https://github.com/Milchreisfan
+ */
+
 namespace Milchreisfan\LittleCore;
 
 use pocketmine\plugin\PluginBase;
@@ -34,18 +39,22 @@ use Milchreisfan\LittleCore\command\newsCommand;
 use Milchreisfan\LittleCore\command\nightCommand;
 use Milchreisfan\LittleCore\command\noonCommand;
 use Milchreisfan\LittleCore\command\nvCommand;
+use Milchreisfan\LittleCore\command\shutdownCommand;
 use Milchreisfan\LittleCore\command\sunriseCommand;
 use Milchreisfan\LittleCore\command\sunsetCommand;
 use Milchreisfan\LittleCore\command\speedCommand;
 use Milchreisfan\LittleCore\command\vanishCommand;
 use Milchreisfan\LittleCore\command\wbCommand;
+# Event ä
+use Milchreisfan\LittleCore\event\EventListener;
 
-class Main extends PluginBase implements Listener {
+class Main extends PluginBase implements Listener
+{
 
     public const PREFIX = "§8[§bCore§8] §3»";
 
-    public function onEnable() {
-        
+    public function onEnable()
+    {    
         $this->saveResource("messages.yml");
         $this->getServer()->getCommandMap()->registerAll("littlecore", [
             new ccCommand(),
@@ -70,6 +79,7 @@ class Main extends PluginBase implements Listener {
             new nightCommand(),
             new noonCommand(),
             new nvCommand(),
+            new shutdownCommand(),
             new sunriseCommand(),
             new sunsetCommand(),
             new speedCommand(),
@@ -79,8 +89,8 @@ class Main extends PluginBase implements Listener {
         $this->getLogger()->info(self::PREFIX . "LittleCore ist aufgewacht! - By Milchreisfan");
     }
 
-    public function onDisable() {
-
+    public function onDisable()
+    {
         $this->getScheduler()->cancelAllTasks();
         $this->getLogger()->error(self::PREFIX . "LittleCore ist eingeschlafen! - Error - Kontaktiere Milchreisfan bei GitHub!");
     }
@@ -89,7 +99,7 @@ class Main extends PluginBase implements Listener {
     {
         DefaultPermissions::registerPermission(new Permission("lc.cc"));
         DefaultPermissions::registerPermission(new Permission("lc.day"));
-        DefaultPermissions::registerPermissions(new Permission("lc.dcinvite"));
+        DefaultPermissions::registerPermission(new Permission("lc.dcinvite"));
         DefaultPermissions::registerPermission(new Permissiom("lc.ec"));
         DefaultPermissions::registerPermission(new Permission("lc.feed"));
         DefaultPermissions::registerPermission(new Permission("lc.fly"));
@@ -109,6 +119,7 @@ class Main extends PluginBase implements Listener {
         DefaultPermissions::registerPermission(new Permission("lc.night"));
         DefaultPermissions::registerPermission(new Permission("lc.noon"));
         DefaultPermissions::registerPermission(new Permission("lc.nv"));
+        DefaultPermissions::registerPermission(new Permission("lc.shutdown"));
         DefaultPermissions::registerPermission(new Permission("lc.sunrise"));
         DefaultPermissions::registerPermission(new Permission("lc.sunset"));
         DefaultPermissions::registerPermission(new Permission("lc.speed"));
