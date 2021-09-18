@@ -13,10 +13,12 @@ use pocketmine\command\Command;
 use pocketmine\command\CommandSender;
 use pocketmine\command\SimpleCommandMap;
 use pocketmine\utils\Config;
-use pocketmine\utils\TextFormat as c;
+use pocketmine\utils\TextFormat;
 use pocketmine\Server;
 use pocketmine\Player;
 use Datetime;
+use pocketmine\permission\DefaultPermissions;
+use pocketmine\permission\Permission;
 # Command #
 use Milchreisfan\LittleCore\command\ccCommand;
 use Milchreisfan\LittleCore\command\dayCommand;
