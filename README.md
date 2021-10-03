@@ -1,3 +1,4 @@
+[alt text](https://github.com/Milchreisfan/LittleCore/blob/master/lc.png)
 # LittleCore #
 Ein Core für PocketMine-MP | A Core for PocketMine-MP
 
