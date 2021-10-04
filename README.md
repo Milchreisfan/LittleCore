@@ -12,15 +12,10 @@ https://discord.gg/QhVSn855z
 
 # Credits #
 
-- Ban -> https://github.com/tim03we/AdvancedBan
 - ChatClear -> https://github.com/Kay313/ClearChat
 
 # Sprache | Language: #
 Just change the messages in config.yml :D
-
-# Information #
-- Ban wird erst in V2 unterstützt sein.
-- Ban will be supportet in V2.
 
 # Befehle | Commands: #
 
