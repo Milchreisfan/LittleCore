@@ -78,3 +78,4 @@ Just change the messages in config.yml :D
 # Hilfe? | Support? #
 - Joine meinen Discord!
 - Join my discord!
+https://bit.ly/LittleCore-DC
