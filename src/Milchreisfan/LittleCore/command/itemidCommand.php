@@ -5,8 +5,8 @@ namespace Milchreisfan\LittleCore\command;
 use Milchreisfan\LittleCore\Main;
 use pocketmine\command\Command;
 use pocketmine\command\CommandSender;
-use pocketmine\Player;
-use pocketmine\Server;
+use pocketmine\player\Player;
+use pocketmine\utils\Config;
 use pocketmine\utils\TextFormat;
 
 class itemidCommand extends Command
@@ -18,9 +18,9 @@ class itemidCommand extends Command
 
     public function execute(CommandSender $sender, string $commandLabel, array $args)
     {
-        $c = new Config($this->getDataFolder() . "messages.yml", Config::YAML);
+        $c = new Config(Main::getInstance()->getDataFolder() . "messages.yml", Config::YAML);
         if ($sender instanceof Player) {
-            $player = $sender->getPlayer();
+            $player = $sender;
             if (!$player->hasPermission("lc.itemid")) {
                 $player->sendMessage(Main::PREFIX . $c->get("no-permissions"));
                 return;
