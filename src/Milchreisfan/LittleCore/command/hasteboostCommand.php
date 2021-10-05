@@ -2,16 +2,14 @@
 
 namespace Milchreisfan\LittleCore\command;
 
+use Milchreisfan\LittleCore\Main;
 use pocketmine\command\Command;
 use pocketmine\command\CommandSender;
-use pocketmine\Player;
+use pocketmine\data\bedrock\EffectIdMap;
+use pocketmine\entity\effect\EffectInstance;
+use pocketmine\player\Player;
 use pocketmine\Server;
-use pocketmine\entity\Effect;
-use pocketmine\entity\EffectInstance;
 use pocketmine\utils\TextFormat;
-use Datetime;
-use DateInterval;
-use pocketmine\event\Listener;
 use pocketmine\utils\Config;
 
 class hasteboostCommand extends Command {
@@ -23,16 +21,16 @@ class hasteboostCommand extends Command {
 
     public function execute(CommandSender $sender, string $commandLabel, array $args)
     {
-        $c = new Config($this->getDataFolder() . "messages.yml", Config::YAML);
+        $c = new Config(Main::getInstance()->getDataFolder() . "messages.yml", Config::YAML);
         if($sender instanceof Player) {
-            $player = $sender->getPlayer();
+            $player = $sender;
             if(!$player->hasPermission("lc.hasteboost")) {
                 $player->sendMessage(Main::PREFIX . $c->get("no-permissions"));
                 return;
             }
             foreach (Server::getInstance()->getOnlinePlayers() as $p) {
-                $eff = new EffectInstance(Effect::getEffect(3), 6000, 1, false);
-                $p->addEffect($eff);
+                $eff = new EffectInstance(EffectIdMap::getInstance()->fromId(3), 6000, 1, false);
+                $p->getEffects()->add($eff);
                 $p->sendMessage(Main::PREFIX . $c->get("hasteboost"));
             }
             return;

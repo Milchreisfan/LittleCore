@@ -5,7 +5,7 @@ namespace Milchreisfan\LittleCore\command;
 use Milchreisfan\LittleCore\Main;
 use pocketmine\command\Command;
 use pocketmine\command\CommandSender;
-use pocketmine\Player;
+use pocketmine\player\Player;
 use pocketmine\Server;
 use pocketmine\utils\TextFormat;
 use pocketmine\utils\Config;
@@ -21,9 +21,9 @@ class ccCommand extends Command
 
     public function execute(CommandSender $sender, string $commandLabel, array $args)
     {
-        $c = new Config($this->getDataFolder() . "messages.yml", Config::YAML);
+        $c = new Config(Main::getInstance()->getDataFolder() . "messages.yml", Config::YAML);
         if ($sender instanceof Player) {
-            $player = $sender->getPlayer();
+            $player = $sender;
             if (!$player->hasPermission("lc.cc")) {
                 $player->sendMessage(Main::PREFIX . $c->get("no-permissions"));
                 return;

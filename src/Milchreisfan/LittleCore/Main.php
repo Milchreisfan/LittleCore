@@ -7,6 +7,7 @@
 
 namespace Milchreisfan\LittleCore;
 
+use Milchreisfan\LittleCore\command\dcCommand;
 use pocketmine\plugin\PluginBase;
 use pocketmine\event\Listener;
 use pocketmine\command\Command;
@@ -15,7 +16,7 @@ use pocketmine\command\SimpleCommandMap;
 use pocketmine\utils\Config;
 use pocketmine\utils\TextFormat;
 use pocketmine\Server;
-use pocketmine\Player;
+use pocketmine\player\Player;
 use Datetime;
 use pocketmine\permission\DefaultPermissions;
 use pocketmine\permission\Permission;
@@ -47,15 +48,21 @@ use Milchreisfan\LittleCore\command\sunsetCommand;
 use Milchreisfan\LittleCore\command\speedCommand;
 use Milchreisfan\LittleCore\command\vanishCommand;
 use Milchreisfan\LittleCore\command\wbCommand;
-# Event ä
-use Milchreisfan\LittleCore\event\EventListener;
 
 class Main extends PluginBase implements Listener
 {
 
+    protected static self $instance;
+
     public const PREFIX = "§8[§bCore§8] §3»";
 
-    public function onEnable()
+    public function onLoad(): void
+    {
+        self::$instance = $this;
+        $this->getLogger()->warning("DEVELOPMENT BUILD!! You're running a development build of LittleCore (for PocketMine-MP 4)! This build isn't fully tested and can contain bugs! Please report bugs as quickly as you can on §bhttps://github.com/Milchreisfan§e!");
+    }
+
+    public function onEnable(): void
     {    
         $this->saveResource("messages.yml");
         $this->getServer()->getCommandMap()->registerAll("littlecore", [
@@ -91,10 +98,15 @@ class Main extends PluginBase implements Listener
         $this->getLogger()->info(self::PREFIX . "LittleCore ist aufgewacht! - By Milchreisfan");
     }
 
-    public function onDisable()
+    public function onDisable(): void
     {
         $this->getScheduler()->cancelAllTasks();
         $this->getLogger()->error(self::PREFIX . "LittleCore ist eingeschlafen! - Error - Kontaktiere Milchreisfan bei GitHub!");
+    }
+
+    public static function getInstance(): self
+    {
+        return self::$instance;
     }
 
     public function registerPermission(): void
@@ -102,7 +114,7 @@ class Main extends PluginBase implements Listener
         DefaultPermissions::registerPermission(new Permission("lc.cc"));
         DefaultPermissions::registerPermission(new Permission("lc.day"));
         DefaultPermissions::registerPermission(new Permission("lc.dcinvite"));
-        DefaultPermissions::registerPermission(new Permissiom("lc.ec"));
+        DefaultPermissions::registerPermission(new Permission("lc.ec"));
         DefaultPermissions::registerPermission(new Permission("lc.feed"));
         DefaultPermissions::registerPermission(new Permission("lc.fly"));
         DefaultPermissions::registerPermission(new Permission("lc.fr"));
@@ -126,6 +138,6 @@ class Main extends PluginBase implements Listener
         DefaultPermissions::registerPermission(new Permission("lc.sunset"));
         DefaultPermissions::registerPermission(new Permission("lc.speed"));
         DefaultPermissions::registerPermission(new Permission("lc.vanish"));
-        DeaufltPermissions::registerPermission(new Permission("lc.wb"));
+        DefaultPermissions::registerPermission(new Permission("lc.wb"));
     }
 }

@@ -1,7 +1,9 @@
 name: LittleCore
-version: 1.9.2
-api: 3.0.0
+version: 1.9.2-PM4
+api: 4.0.0
 main: Milchreisfan\LittleCore\Main
-author: Milchreisfan
+authors:
+  - Milchreisfan
+  - supercrafter333
 description: Core für PocketMine-MP | A Core for PocketMine-MP
 website: "https://github.com/Milchreisfan"
