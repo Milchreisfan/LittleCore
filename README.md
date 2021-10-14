@@ -7,12 +7,7 @@ Ein Core für PocketMine-MP | A Core for PocketMine-MP
 > Please report bugs, if you found a bug!!
 
 # Info: #
-- LittleCore wird vorerst nicht PocketMine-MP 4.0.0 unterstützen aber bald.
-- LittleCore will do not support PocketMine-MP 4.0.0 for a time.
-# Discord: #
-- Trette dem LittleCore Discord bei!
-- Join the LittleCore discord!
-https://discord.gg/QhVSn855z
+- This is the PM 4.0.0 Build!
 
 # Credits #
 
