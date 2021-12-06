@@ -11,8 +11,11 @@ use pocketmine\utils\Config;
 
 class healCommand extends Command {
 
-    public function __construct()
+    public function __construct(string $permission = null)
     {
+        if ($permission !== null) {
+            $this->setPermission($permission);
+        }
         parent::__construct("heal", "Heal yourself!");
     }
 
@@ -20,10 +23,9 @@ class healCommand extends Command {
     {
         $c = new Config(Main::getInstance()->getDataFolder() . "messages.yml", Config::YAML);
         if ($sender instanceof Player) {
-            if (!$sender->hasPermission("lc.heal")) {
-                $sender->sendMessage(Main::PREFIX . $c->get("no-permissions"));
-                return;
-            }
+
+            if (!$this->testPermission($sender, $this->getPermission())) return;
+
             $sender->setHealth(20);
             $sender->sendMessage(Main::PREFIX . $c->get("heal"));
             return;

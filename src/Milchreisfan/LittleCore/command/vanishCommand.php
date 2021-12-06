@@ -11,8 +11,11 @@ use pocketmine\utils\Config;
 
 class vanishCommand extends Command
 {
-    public function __construct()
+    public function __construct(string $permission = null)
     {
+        if ($permission !== null) {
+            $this->setPermission($permission);
+        }
         parent::__construct("vanish", "Enable/Disable Vanish");
     }
 
@@ -20,10 +23,9 @@ class vanishCommand extends Command
     {
         $c = new Config(Main::getInstance()->getDataFolder() . "messages.yml", Config::YAML);
         if ($sender instanceof Player) {
-            if (!$sender->hasPermission("lc.vanish")) {
-                $sender->sendMessage(Main::PREFIX . $c->get("no-permissions"));
-                return;
-            }
+
+            if (!$this->testPermission($sender, $this->getPermission())) return;
+            
             if ($sender->isInvisible()) {
                 $sender->sendMessage(Main::PREFIX . $c->get("vanish-enable"));
                 $sender->setInvisible(true);

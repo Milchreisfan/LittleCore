@@ -11,8 +11,11 @@ use pocketmine\utils\Config;
 
 class flyCommand extends Command
 {
-    public function __construct()
+    public function __construct(string $permission = null)
     {
+        if ($permission !== null) {
+            $this->setPermission($permission);
+        }
         parent::__construct("fly", "Enable/Disable flying!");
     }
 
@@ -20,10 +23,9 @@ class flyCommand extends Command
     {
         $c = new Config(Main::getInstance()->getDataFolder() . "messages.yml", Config::YAML);
         if($sender instanceof Player) {
-            if (!$sender->hasPermission("lc.fly")) {
-                $sender->sendMessage(Main::PREFIX . $c->get("no-permissions"));
-                return;
-            }
+
+            if (!$this->testPermission($sender, $this->getPermission())) return;
+
             if($sender->getAllowFlight()) {
                 $sender->setAllowFlight(false);
                 $sender->setFlying(false);

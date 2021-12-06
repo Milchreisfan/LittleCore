@@ -13,8 +13,11 @@ use pocketmine\utils\Config;
 
 class nvCommand extends Command
 {
-    public function __construct()
+    public function __construct(string $permission = null)
     {
+        if ($permission !== null) {
+            $this->setPermission($permission);
+        }
         parent::__construct("nv", "Enable night vision!");
     }
 
@@ -22,10 +25,9 @@ class nvCommand extends Command
     {
         $c = new Config(Main::getInstance()->getDataFolder() . "messages.yml", Config::YAML);
         if($sender instanceof Player) {
-            if (!$sender->hasPermission("lc.nv")) {
-                $sender->sendMessage($c->get(Main::PREFIX . "no-permissions"));
-                return;
-            }
+
+            if (!$this->testPermission($sender, $this->getPermission())) return;
+
             $sender->sendMessage(Main::PREFIX . $c->get("night-vision"));
             $eff = new EffectInstance(EffectIdMap::getInstance()->fromId(16), 6000, 3, false);
             $sender->getEffects()->add($eff);

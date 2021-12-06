@@ -33,95 +33,93 @@
 
 # colors #
 
-# §1 = dark blue
-# §2 = dark green
-# §3 = cyan
-# §4 = dark red
-# §5 = dark purple
-# §6 = orange
-# §7 = light gray
-# §8 = dark gray
-# §9 = blue
-# §0 = black
-# §e = yellow
-# §r = color reset
-# §o = italic
-# §a = lime
-# §d = light purple/pink
-# §f = white
-# §g = gold
-# §k = idk every symbol i guess xd
-# §l = wide i guess xd
-# §c = light red
-# §b = aqua
+# &1 = dark blue
+# &2 = dark green
+# &3 = cyan
+# &4 = dark red
+# &5 = dark purple
+# &6 = orange
+# &7 = light gray
+# &8 = dark gray
+# &9 = blue
+# &0 = black
+# &e = yellow
+# &r = color reset
+# &o = italic
+# &a = lime
+# &d = light purple/pink
+# &f = white
+# &g = gold
+# &k = idk every symbol i guess xd
+# &l = bolt
+# &c = light red
+# &b = aqua
 
 # Messages #
 
-# no-permissions = if the sender has no permissions #
-no-permissions: "§cYou don't have the permission to run this command!"
 
 # console = if the sender is not a player #
 console: "Run this command ingame!"
 
-# ChatClear chatclear-start the first message from chatclear, chatclear-clearing is the clear message (§r is no message just space) and chatclear-end is the end from the chatclear #
-chatclear-start: "§cA chatclear is now starting!"
-chatclear-clearing: "§r"
-chatclear-end: "§aThe chatclear is finished!"
+# ChatClear chatclear-start the first message from chatclear, chatclear-clearing is the clear message (&r is no message just space) and chatclear-end is the end from the chatclear #
+chatclear-start: "&cA chatclear is now starting!"
+chatclear-clearing: "&r"
+chatclear-end: "&aThe chatclear is finished!"
 
 # Time Change #
-timechange-day: "§aThe time has been changed to day!"
-timechange-noon: "§aThe time has been changed to noon!"
-timechange-sunset: "§aThe time has been changed to sunset!"
-timechange-night: "§aThe time has been changed to night!"
-timechange-midnight: "§aThe time has been changed to midnight!"
-timechange-sunrise: "§aThe time has been changed to sunrise!"
+timechange-day: "&aThe time has been changed to day!"
+timechange-noon: "&aThe time has been changed to noon!"
+timechange-sunset: "&aThe time has been changed to sunset!"
+timechange-night: "&aThe time has been changed to night!"
+timechange-midnight: "&aThe time has been changed to midnight!"
+timechange-sunrise: "&aThe time has been changed to sunrise!"
 
 # Gamemode #
-gm0: "§aYour gamemode has been updated to survival!"
-gm1: "§aYour gamemode has been updated to creative!"
-gm2: "§aYour gamemode has been updated to adventure!"
-gm3: "§aYour gamemode has been updated to spectator!"
+gm0: "&aYour gamemode has been updated to survival!"
+gm1: "&aYour gamemode has been updated to creative!"
+gm2: "&aYour gamemode has been updated to adventure!"
+gm3: "&aYour gamemode has been updated to spectator!"
 
 # Effects #
-fr: "§aFire resistance has been enabled!"
-hasteboost: "§aAn hasteboost has been enabled!"
-invisibility: "§aInvisibility has been enabled!"
-jump: "§aAn jump boost has been enabled!"
-night-vision: "§aNight vision has been enabled!"
-speed: "§aSpeed has been enabled!"
-water-breathing: "§aWater breathing has been enabled!"
+fr: "&aFire resistance has been enabled!"
+hasteboost: "&aAn hasteboost has been enabled!"
+invisibility: "&aInvisibility has been enabled!"
+jump: "&aAn jump boost has been enabled!"
+night-vision: "&aNight vision has been enabled!"
+speed: "&aSpeed has been enabled!"
+water-breathing: "&aWater breathing has been enabled!"
 
 # Discord Invite #
-dcinvite: "§fOur discord: §9<link> §fJoin us :D"
+dcinvite: "&fOur discord: &9<link> &fJoin us :D"
 
 # Heal #
-heal: "§aYou has been healed!"
+heal: "&aYou has been healed!"
 
 # Feed #
 feed: "You has been feeded!"
 
 # Fly #
 
-fly-disable: "§cFly has been disabled!"
-fly-enable: "§aFly has been enabled!"
+fly-disable: "&cFly has been disabled!"
+fly-enable: "&aFly has been enabled!"
 
 # Enderchest #
-enderchest: "§aYou opened your enderchest!"
+enderchest: "&aYou opened your enderchest!"
 
 # Vanish #
-vanish-disable: "§cVanish has been disabled!"
-vanish-enable: "§aVanish has been enabled!"
+vanish-disable: "&cVanish has been disabled!"
+vanish-enable: "&aVanish has been enabled!"
 
 # Server-Informations #
-information: "§eType informations about your server."
+information: "&eType informations about your server."
 
 # News #
-news: "§eType about news maybe updates or changes :D"
+news: "&eType about news maybe updates or changes :D"
 
 # Shutdown #
 # shutdownstart -> the message will send it to the player who runs /shutdown # shutdown-now -> send a message to the commandsender that the server will now crash
-shutdownstart: "§4The shutdown will start!"
-shutdown-popup: "§cSERVER-SHUTDOWN"
-shutdown-title: "§cTHE SERVER WILL CRASH!"
-shutdown-message: "§l§o§cTHE SERVER WILL SHUTDOWN! DON'T DO ANYTHING"
-shutdown-now: "§4The server is now crashing."
+shutdownstart: "&4The shutdown will start!"
+shutdown-popup: "&cSERVER-SHUTDOWN"
+shutdown-title: "&cTHE SERVER WILL CRASH!"
+shutdown-message: "&l&o&cTHE SERVER WILL SHUTDOWN! DON'T DO ANYTHING"
+shutdown-now: "&4The server is now crashing."

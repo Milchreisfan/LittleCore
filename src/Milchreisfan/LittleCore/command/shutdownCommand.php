@@ -12,8 +12,11 @@ use pocketmine\utils\Config;
 
 class shutdownCommand extends Command
 {
-    public function __construct()
+    public function __construct(string $permission = null)
     {
+        if ($permission !== null) {
+            $this->setPermission($permission);
+        }
         parent::__construct("shutdown", "Crash the Server!");
     }
 
@@ -22,10 +25,9 @@ class shutdownCommand extends Command
         $c = new Config(Main::getInstance()->getDataFolder() . "messages.yml", Config::YAML);
         if($sender instanceof Player) {
             $player = $sender;
-            if(!$player->hasPermission("lc.shutdown")) {
-                $player->sendMessage(Main::PREFIX . $c->get("no-permissions"));
-                return;
-            }
+
+            if (!$this->testPermission($sender, $this->getPermission())) return;
+
             $player->sendMessage(Main::PREFIX . $c->get("shutdownstart"));
             foreach (Server::getInstance()->getOnlinePlayers() as $p) {
                 $p->sendPopup($c->get("shutdown-popup"));

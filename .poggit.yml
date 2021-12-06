@@ -2,6 +2,7 @@
 build-by-default: true
 branches:
 - main
+- PM4 #remove that if this branch does no longer exists
 projects:
   LittleCore:
     path: ""
