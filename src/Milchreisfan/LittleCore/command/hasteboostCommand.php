@@ -14,8 +14,11 @@ use pocketmine\utils\Config;
 
 class hasteboostCommand extends Command {
 
-    public function __construct()
+    public function __construct(string $permission = null)
     {
+        if ($permission !== null) {
+            $this->setPermission($permission);
+        }
         parent::__construct("hasteboost", "Enable an haste boost!");
     }
 
@@ -24,10 +27,9 @@ class hasteboostCommand extends Command {
         $c = new Config(Main::getInstance()->getDataFolder() . "messages.yml", Config::YAML);
         if($sender instanceof Player) {
             $player = $sender;
-            if(!$player->hasPermission("lc.hasteboost")) {
-                $player->sendMessage(Main::PREFIX . $c->get("no-permissions"));
-                return;
-            }
+
+            if (!$this->testPermission($sender, $this->getPermission())) return;
+
             foreach (Server::getInstance()->getOnlinePlayers() as $p) {
                 $eff = new EffectInstance(EffectIdMap::getInstance()->fromId(3), 6000, 1, false);
                 $p->getEffects()->add($eff);

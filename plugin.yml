@@ -1,9 +1,95 @@
 name: LittleCore
-version: 1.9.2-PM4
+version: 2.0.0 #use this as main version because PM4 is much better than PM3 :)
 api: 4.0.0
 main: Milchreisfan\LittleCore\Main
 authors:
   - Milchreisfan
-  - supercrafter333
-description: Core für PocketMine-MP | A Core for PocketMine-MP
-website: "https://github.com/Milchreisfan"
+  - supercrafter333 #PocketMine-MP 4 version
+description: Core für PocketMine-MP 4 | A Core for PocketMine-MP 4
+website: "https://github.com/Milchreisfan/tree/PM4"
+
+permissions:
+  lc.cc:
+    description: Command Permission
+    default: op
+  lc.day:
+    description: Command Permission
+    default: op
+  lc.dinvite:
+    description: Command Permission
+    default: true #or op?
+  lc.ec:
+    description: Command Permission
+    default: op
+  lc.feed:
+    description: Command Permission
+    default: op
+  lc.fly:
+    description: Command Permission
+    default: op
+  lc.fr:
+    description: Command Permission
+    default: op
+  lc.gm0:
+    description: Command Permission
+    default: op
+  lc.gm1:
+    description: Command Permission
+    default: op
+  lc.gm2:
+    description: Command Permission
+    default: op
+  lc.gm3:
+    description: Command Permission
+    default: op
+  lc.hasteboost:
+    description: Command Permission
+    default: op
+  lc.heal:
+    description: Command Permission
+    default: op
+  lc.info:
+    description: Command Permission
+    default: true #or op?
+  lc.itemid:
+    description: Command Permission
+    default: op
+  lc.inv:
+    description: Command Permission
+    default: op
+  lc.jump:
+    description: Command Permission
+    default: op
+  lc.midnight:
+    description: Command Permission
+    default: op
+  lc.news:
+    description: Command Permission
+    default: true #or op?
+  lc.night:
+    description: Command Permission
+    default: op
+  lc.noon:
+    description: Command Permission
+    default: op
+  lc.nv:
+    description: Command Permission
+    default: op
+  lc.shutdown:
+    description: Command Permission
+    default: op
+  lc.sunrise:
+    description: Command Permission
+    default: op
+  lc.sunset:
+    description: Command Permission
+    default: op
+  lc.speed:
+    description: Command Permission
+    default: op
+  lc.vanish:
+    description: Command Permission
+    default: op
+  lc.wb:
+    description: Command Permission
+    default: op

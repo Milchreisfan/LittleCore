@@ -12,8 +12,11 @@ use pocketmine\utils\Config;
 
 class gm1Command extends Command {
 
-    public function __construct()
+    public function __construct(string $permission = null)
     {
+        if ($permission !== null) {
+            $this->setPermission($permission);
+        }
         parent::__construct("gm1", "Switch your gamemode to creative!");
     }
 
@@ -21,10 +24,9 @@ class gm1Command extends Command {
     {
         $c = new Config(Main::getInstance()->getDataFolder() . "messages.yml", Config::YAML);
         if ($sender instanceof Player) {
-            if (!$sender->hasPermission("lc.gm1")) {
-                $sender->sendMessage(Main::PREFIX . $c->get("no-permissions"));
-                return;
-            }
+
+            if (!$this->testPermission($sender, $this->getPermission())) return;
+
             $sender->setGamemode(GameMode::CREATIVE());
             $sender->sendMessage(Main::PREFIX . $c->get("gm1"));
             return;

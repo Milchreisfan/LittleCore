@@ -2,9 +2,6 @@
 # LittleCore for PocketMine-MP 4 (PM4) #
 Ein Core für PocketMine-MP | A Core for PocketMine-MP
 
-> **WARNING:** This version of LittleCore is developed for *PocketMine-MP 4* (PM4), please only use it if you use PM4!
-> 
-> Please report bugs, if you found a bug!!
 
 # Info: #
 - This is the PM 4.0.0 Build!

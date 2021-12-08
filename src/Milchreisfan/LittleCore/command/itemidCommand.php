@@ -11,8 +11,11 @@ use pocketmine\utils\TextFormat;
 
 class itemidCommand extends Command
 {
-    public function __construct()
+    public function __construct(string $permission = null)
     {
+        if ($permission !== null) {
+            $this->setPermission($permission);
+        }
         parent::__construct("itemid", "Show the ItemID!");
     }
 
@@ -21,10 +24,9 @@ class itemidCommand extends Command
         $c = new Config(Main::getInstance()->getDataFolder() . "messages.yml", Config::YAML);
         if ($sender instanceof Player) {
             $player = $sender;
-            if (!$player->hasPermission("lc.itemid")) {
-                $player->sendMessage(Main::PREFIX . $c->get("no-permissions"));
-                return;
-            }
+
+            if (!$this->testPermission($sender, $this->getPermission())) return;
+
             $sender->sendMessage(Main::PREFIX . "§fThe item-id is: §a" . $player->getInventory()->getItemInHand()->getID());
             return;
         }

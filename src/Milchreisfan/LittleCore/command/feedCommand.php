@@ -11,8 +11,11 @@ use pocketmine\utils\Config;
 
 class feedCommand extends Command {
 
-    public function __construct()
+    public function __construct(string $permission = null)
     {
+        if ($permission !== null) {
+            $this->setPermission($permission);
+        }
         parent::__construct("feed", "Feed yourself!");
     }
 
@@ -20,10 +23,9 @@ class feedCommand extends Command {
     {
         $c = new Config(Main::getInstance()->getDataFolder() . "messages.yml", Config::YAML);
         if ($sender instanceof Player) {
-            if (!$sender->hasPermission("lc.feed")) {
-                $sender->sendMessage(Main::PREFIX . $c->get("no-permissions"));
-                return;
-            }
+
+            if (!$this->testPermission($sender, $this->getPermission())) return;
+
             $sender->getHungerManager()->setFood(20);
             $sender->sendMessage(Main::PREFIX . $c->get("feed"));
             return;

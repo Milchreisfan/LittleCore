@@ -13,8 +13,11 @@ use pocketmine\utils\Config;
 
 class frCommand extends Command
 {
-    public function __construct()
+    public function __construct(string $permission = null)
     {
+        if ($permission !== null) {
+            $this->setPermission($permission);
+        }
         parent::__construct("fr", "Enable fire resistance!");
     }
 
@@ -22,10 +25,9 @@ class frCommand extends Command
     {
         $c = new Config(Main::getInstance()->getDataFolder() . "messages.yml", Config::YAML);
         if($sender instanceof Player) {
-            if (!$sender->hasPermission("lc.fr")) {
-                $sender->sendMessage(Main::PREFIX . $c->get("no-permissions"));
-                return;
-            }
+
+            if (!$this->testPermission($sender, $this->getPermission())) return;
+
             $sender->sendMessage(Main::PREFIX . $c->get("fr"));
             $eff = new EffectInstance(EffectIdMap::getInstance()->fromId(12), 6000, 3, false);
             $sender->getEffects()->add($eff);

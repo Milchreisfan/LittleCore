@@ -12,8 +12,11 @@ use pocketmine\world\particle\BlockBreakParticle;
 
 class dcCommand extends Command {
 
-    public function __construct()
+    public function __construct(string $permission = null)
     {
+        if ($permission !== null) {
+            $this->setPermission($permission);
+        }
         parent::__construct("dcinvite", "Show the discord invite!");
     }
 
@@ -21,10 +24,9 @@ class dcCommand extends Command {
     {
         $c = new Config(Main::getInstance()->getDataFolder() . "messages.yml", Config::YAML);
         if($sender instanceof Player) {
-            if(!$sender->hasPermission("lc.dcinvite")) {
-                $sender->sendMessage(Main::PREFIX . $c->get("no-permissions"));
-                return;
-            }
+
+            if (!$this->testPermission($sender, $this->getPermission())) return;
+
             $sender->sendMessage(Main::PREFIX . $c->get("dcinvite"));
             $sender->getWorld()->addParticle($sender->getPosition()->asVector3(), new BlockBreakParticle(BlockFactory::getInstance()->get(57)));
         }

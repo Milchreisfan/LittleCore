@@ -13,8 +13,11 @@ use pocketmine\utils\Config;
 
 class jumpCommand extends Command
 {
-    public function __construct()
+    public function __construct(string $permission = null)
     {
+        if ($permission !== null) {
+            $this->setPermission($permission);
+        }
         parent::__construct("jump", "Enable an jump boost!");
     }
 
@@ -22,10 +25,9 @@ class jumpCommand extends Command
     {
         $c = new Config(Main::getInstance()->getDataFolder() . "messages.yml", Config::YAML);
         if($sender instanceof Player) {
-            if (!$sender->hasPermission("lc.jump")) {
-                $sender->sendMessage(Main::PREFIX . $c->get("no-permissions"));
-                return;
-            }
+
+            if (!$this->testPermission($sender, $this->getPermission())) return;
+
             $sender->sendMessage(Main::PREFIX . $c->get("jump"));
             $eff = new EffectInstance(EffectIdMap::getInstance()->fromId(8), 6000, 3, false);
             $sender->getEffects()->add($eff);

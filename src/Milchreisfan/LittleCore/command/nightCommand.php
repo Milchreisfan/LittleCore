@@ -13,8 +13,11 @@ use pocketmine\utils\Config;
 class nightCommand extends Command
 {
 
-    public function __construct()
+    public function __construct(string $permission = null)
     {
+        if ($permission !== null) {
+            $this->setPermission($permission);
+        }
         parent::__construct("night", "Change the time to night!");
     }
 
@@ -24,10 +27,9 @@ class nightCommand extends Command
         $c = new Config(Main::getInstance()->getDataFolder() . "messages.yml", Config::YAML);
         if ($sender instanceof Player) {
             $player = $sender;
-            if (!$player->hasPermission("lc.night")) {
-                $player->sendMessage(Main::PREFIX . $c->get("no-permissions"));
-                return;
-            }
+
+            if (!$this->testPermission($sender, $this->getPermission())) return;
+
             $player->getWorld()->setTime(16000);
             foreach (Server::getInstance()->getOnlinePlayers() as $p) {
                 $p->sendMessage(Main::PREFIX . $c->get("timechange-night"));
