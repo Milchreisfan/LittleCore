@@ -7,8 +7,11 @@ Ein Core für PocketMine-MP | A Core for PocketMine-MP
 - PM3-version will be soon end-of-life.
 # Discord: #
 - Trette dem LittleCore Discord bei!
-- Join the LittleCore discord!
-https://discord.gg/QhVSn855z
+- Join the LittleCore discord! https://discord.gg/QhVSn855z
+
+
+
+
 - This is the PM 4.0.0 Build!
 
 # Credits #
