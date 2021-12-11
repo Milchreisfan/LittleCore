@@ -1,4 +1,4 @@
-[![alt](https://github.com/Milchreisfan/LittleCore/blob/master/lc.png)](https://github.com/Milchreisfan/LittleCore)
+[![alt](https://github.com/Milchreisfan/LittleCore/blob/main/lc.png)](https://github.com/Milchreisfan/LittleCore)
 # LittleCore for PocketMine-MP 4 (PM4) #
 Ein Core für PocketMine-MP | A Core for PocketMine-MP
 
