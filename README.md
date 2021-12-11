@@ -41,6 +41,7 @@ Just change the messages in config.yml :D
 - /info
 - /news
 - /itemid
+- /rules
 
 # Berechtigungen | Permissions: #
 
@@ -70,8 +71,7 @@ Just change the messages in config.yml :D
 - /info -> lc.info
 - /news -> lc.news
 - /itemid -> lc.itemid
+- /rules -> lc.rules
 
 # Hilfe? | Support? #
-- Joine meinen Discord!
-- Join my discord!
-https://bit.ly/LittleCore-DC
+- Create an issue
