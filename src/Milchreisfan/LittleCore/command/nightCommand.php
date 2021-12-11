@@ -2,35 +2,40 @@
 
 namespace Milchreisfan\LittleCore\command;
 
+use Milchreisfan\LittleCore\Main;
 use pocketmine\command\Command;
 use pocketmine\command\CommandSender;
-use pocketmine\Player;
+use pocketmine\player\Player;
 use pocketmine\Server;
 use pocketmine\utils\TextFormat;
+use pocketmine\utils\Config;
 
 class nightCommand extends Command
 {
 
-    public function __construct()
+    public function __construct(string $permission = null)
     {
-        parent::__construct("night", "Ändere die Zeit zu Nacht!");
+        if ($permission !== null) {
+            $this->setPermission($permission);
+        }
+        parent::__construct("night", "Change the time to night!");
     }
 
 
     public function execute(CommandSender $sender, string $commandLabel, array $args)
     {
+        $c = new Config(Main::getInstance()->getDataFolder() . "messages.yml", Config::YAML);
         if ($sender instanceof Player) {
-            $player = $sender->getPlayer();
-            if (!$player->hasPermission("lc.night")) {
-                $player->sendMessage("§8[§bCore§8] §3» §4Du hast keine Berechtigung für diesen Befehl!");
-                return;
-            }
-            $player->getLevel()->setTime(16000);
+            $player = $sender;
+
+            if (!$this->testPermission($sender, $this->getPermission())) return;
+
+            $player->getWorld()->setTime(16000);
             foreach (Server::getInstance()->getOnlinePlayers() as $p) {
-                $p->sendMessage("§8[§bCore§8] §3» §eDer Spieler" . "§6 " . $player->getName() . "§e" . " hat die Zeit zu Nacht geändert!");
+                $p->sendMessage(Main::PREFIX . $c->get("timechange-night"));
             }
             return;
         }
-        $sender->sendMessage(TextFormat::RED . "Diesen Befehl kannst du nur Ingame ausführen.");
+        $sender->sendMessage(TextFormat::RED . $c->get("console"));
     }
 }

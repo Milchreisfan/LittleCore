@@ -2,36 +2,41 @@
 
 namespace Milchreisfan\LittleCore\command;
 
+use Milchreisfan\LittleCore\Main;
 use pocketmine\command\Command;
 use pocketmine\command\CommandSender;
-use pocketmine\Player;
+use pocketmine\data\bedrock\EffectIdMap;
+use pocketmine\entity\effect\EffectInstance;
+use pocketmine\player\Player;
 use pocketmine\Server;
-use pocketmine\entity\Effect;
-use pocketmine\entity\EffectInstance;
 use pocketmine\utils\TextFormat;
+use pocketmine\utils\Config;
 
 class hasteboostCommand extends Command {
 
-    public function __construct()
+    public function __construct(string $permission = null)
     {
-        parent::__construct("hasteboost", "Aktiviere einen Abbaugeschwindkeits-Boost!");
+        if ($permission !== null) {
+            $this->setPermission($permission);
+        }
+        parent::__construct("hasteboost", "Enable an haste boost!");
     }
 
     public function execute(CommandSender $sender, string $commandLabel, array $args)
     {
+        $c = new Config(Main::getInstance()->getDataFolder() . "messages.yml", Config::YAML);
         if($sender instanceof Player) {
-            $player = $sender->getPlayer();
-            if(!$player->hasPermission("lc.hasteboost")) {
-                $player->sendMessage("§8[§bCore§8] §3» §4Du hast keine Rechte für diesen Befehl!");
-                return;
-            }
+            $player = $sender;
+
+            if (!$this->testPermission($sender, $this->getPermission())) return;
+
             foreach (Server::getInstance()->getOnlinePlayers() as $p) {
-                $eff = new EffectInstance(Effect::getEffect(3), 6000, 1, false);
-                $p->addEffect($eff);
-                $p->sendMessage("§8[§bCore§8] §3» §eDer Spieler" . "§6 " . $player->getName() . "§e" ." hat einen Abbaugeschwindigkeitesbooster aktiviert! Jeder hat nun 5 Minuten Eile.");
+                $eff = new EffectInstance(EffectIdMap::getInstance()->fromId(3), 6000, 1, false);
+                $p->getEffects()->add($eff);
+                $p->sendMessage(Main::PREFIX . $c->get("hasteboost"));
             }
             return;
         }
-        $sender->sendMessage(TextFormat::RED . "Diesen Befehl kannst du nur Ingame ausführen.");
+        $sender->sendMessage(TextFormat::RED . $c->get("console"));
     }
 }

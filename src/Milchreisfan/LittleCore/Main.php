@@ -1,17 +1,18 @@
 <?php
 
+/**
+ * LittleCore - By Milchreisfan
+ * https://github.com/Milchreisfan
+ */
+
 namespace Milchreisfan\LittleCore;
 
+use Milchreisfan\LittleCore\command\dcCommand;
 use pocketmine\plugin\PluginBase;
 use pocketmine\event\Listener;
-use pocketmine\command\Command;
-use pocketmine\command\CommandSender;
-use pocketmine\command\SimpleCommandMap;
-use pocketmine\utils\Config;
-use pocketmine\utils\TextFormat as c;
-use pocketmine\Server;
-use pocketmine\Player;
-use Datetime;
+use pocketmine\utils\SingletonTrait;
+use pocketmine\utils\TextFormat;
+use pocketmine\player\Player;
 # Command #
 use Milchreisfan\LittleCore\command\ccCommand;
 use Milchreisfan\LittleCore\command\dayCommand;
@@ -25,77 +26,80 @@ use Milchreisfan\LittleCore\command\gm2Command;
 use Milchreisfan\LittleCore\command\gm3Command;
 use Milchreisfan\LittleCore\command\hasteboostCommand;
 use Milchreisfan\LittleCore\command\healCommand;
+use Milchreisfan\LittleCore\command\infoCommand;
+use Milchreisfan\LittleCore\command\itemidCommand;
 use Milchreisfan\LittleCore\command\invCommand;
 use Milchreisfan\LittleCore\command\jumpCommand;
 use Milchreisfan\LittleCore\command\midnightCommand;
+use Milchreisfan\LittleCore\command\newsCommand;
 use Milchreisfan\LittleCore\command\nightCommand;
 use Milchreisfan\LittleCore\command\noonCommand;
 use Milchreisfan\LittleCore\command\nvCommand;
+use Milchreisfan\LittleCore\command\rulesCommand;
+use Milchreisfan\LittleCore\command\shutdownCommand;
 use Milchreisfan\LittleCore\command\sunriseCommand;
 use Milchreisfan\LittleCore\command\sunsetCommand;
 use Milchreisfan\LittleCore\command\speedCommand;
+use Milchreisfan\LittleCore\command\vanishCommand;
 use Milchreisfan\LittleCore\command\wbCommand;
+class Main extends PluginBase implements Listener
+{
+    use SingletonTrait;
 
-class Main extends PluginBase implements Listener {
+    public const PREFIX = "§8[§bCore§8] §3»"; #realy? > ??
 
-    public function onEnable() {
-
-        $this->getServer()->getCommandMap()->registerAll("littlecore", [
-            new ccCommand(),
-            new dayCommand(),
-            new ecCommand(),
-            new feedCommand(),
-            new flyCommand(),
-            new frCommand(),
-            new gm0Command(),
-            new gm1Command(),
-            new gm2Command(),
-            new gm3Command(),
-            new hasteboostCommand(),
-            new healCommand(),
-            new invCommand(),
-            new jumpCommand(),
-            new midnightCommand(),
-            new nightCommand(),
-            new noonCommand(),
-            new nvCommand(),
-            new sunriseCommand(),
-            new sunsetCommand(),
-            new speedCommand(),
-            new wbCommand()
-        ]);
-        $this->getLogger()->info("LittleCore ist aufgewacht! - By Milchreisfan");
-    }
-
-    public function onDisable() {
-
-        $this->getScheduler()->cancelAllTasks();
-        $this->getLogger()->error("LittleCore ist eingeschlafen! - Error - Kontaktiere Milchreisfan bei GitHub!");
-    }
-
-    public function registerPermission(): void
+    public function onLoad(): void
     {
-        DefaultPermissions::registerPermission(new Permission("lc.cc"));
-        DefaultPermissions::registerPermission(new Permission("lc.day"));
-        DefaultPermissions::registerPermission(new Permissiom("lc.ec"));
-        DefaultPermissions::registerPermission(new Permission("lc.feed"));
-        DefaultPermissions::registerPermission(new Permission("lc.fly"));
-        DefaultPermissions::registerPermission(new Permission("lc.fr"));
-        DefaultPermissions::registerPermission(new Permission("lc.gm0"));
-        DefaultPermissions::registerPermission(new Permission("lc.gm1"));
-        DefaultPermissions::registerPermission(new Permission("lc.gm2"));
-        DefaultPermissions::registerPermission(new Permission("lc.gm3"));
-        DefaultPermissions::registerPermission(new Permission("lc.hasteboost"));
-        DefaultPermissions::registerPermission(new Permission("lc.heal"));
-        DefaultPermissions::registerPermission(new Permission("lc.inv"));
-        DefaultPermissions::registerPermission(new Permission("lc.jump"));
-    	DefaultPermissions::registerPermission(new Permission("lc.midnight"));
-        DefaultPermissions::registerPermission(new Permission("lc.night"));
-        DefaultPermissions::registerPermission(new Permission("lc.noon"));
-        DefaultPermissions::registerPermission(new Permission("lc.nv"));
-        DefaultPermissions::registerPermission(new Permission("lc.sunrise"));
-        DefaultPermissions::registerPermission(new Permission("lc.sunset"));
-        DefaultPermissions::registerPermission(new Permission("lc.speed"));
-        DeaufltPermissions::registerPermission(new Permission("lc.wb"));
+        self::setInstance($this);
+    }
+
+    public function onEnable(): void
+    {    
+        $this->saveResource("messages.yml");
+        $this->getServer()->getCommandMap()->registerAll("littlecore", [
+            new ccCommand("lc.cc"),
+            new dayCommand("lc.day"),
+            new dcCommand("lc.dinvite"),
+            new ecCommand("lc.ec"),
+            new feedCommand("lc.feed"),
+            new flyCommand("lc.fly"),
+            new frCommand("lc.fr"),
+            new gm0Command("lc.gm0"),
+            new gm1Command("lc.gm1"),
+            new gm2Command("lc.gm2"),
+            new gm3Command("lc.gm3"),
+            new hasteboostCommand("lc.hasteboost"),
+            new healCommand("lc.heal"),
+            new infoCommand("lc.info"),
+            new itemidCommand("lc.itemid"),
+            new invCommand("lc.inv"),
+            new jumpCommand("lc.jump"),
+            new midnightCommand("lc.midnight"),
+            new newsCommand("lc.news"),
+            new nightCommand("lc.night"),
+            new noonCommand("lc.noon"),
+            new nvCommand("lc.nv"),
+            new rulesCommand("lc.rules");
+            new shutdownCommand("lc.shutdown"),
+            new sunriseCommand("lc.sunrise"),
+            new sunsetCommand("lc.sunset"),
+            new speedCommand("lc.speed"),
+            new vanishCommand("lc.vanish"),
+            new wbCommand("lc.wb")
+        ]);
+        $this->getLogger()->info(self::PREFIX . "LittleCore ist aufgewacht! - By Milchreisfan");
+    }
+
+    public function onDisable(): void
+    {
+        $this->getScheduler()->cancelAllTasks();
+        $this->getLogger()->error(self::PREFIX . "LittleCore ist eingeschlafen! - Kontaktiere Milchreisfan bei GitHub!");
+    }
+
+    public function formatText(Player $player, string $text): string
+    {
+        $text = str_replace(['&0', '&1', '&2', '&3', '&4', '&5', '&6', '&7', '&8', '&9', '&a', '&b', '&c', '&d', '&e', '&f', '&k', '&l', '&m', '&n', '&o', '&r'], [TextFormat::BLACK, TextFormat::DARK_BLUE, TextFormat::DARK_GREEN, TextFormat::DARK_AQUA, TextFormat::DARK_RED, TextFormat::DARK_PURPLE, TextFormat::GOLD, TextFormat::GRAY, TextFormat::DARK_GRAY, TextFormat::BLUE, TextFormat::GREEN, TextFormat::AQUA, TextFormat::RED, TextFormat::LIGHT_PURPLE, TextFormat::YELLOW, TextFormat::WHITE, TextFormat::OBFUSCATED, TextFormat::BOLD, TextFormat::STRIKETHROUGH, TextFormat::UNDERLINE, TextFormat::ITALIC, TextFormat::RESET], $text);
+
+        return $text;
     }
 }

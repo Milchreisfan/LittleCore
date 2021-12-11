@@ -2,30 +2,34 @@
 
 namespace Milchreisfan\LittleCore\command;
 
+use Milchreisfan\LittleCore\Main;
 use pocketmine\command\Command;
 use pocketmine\command\CommandSender;
-use pocketmine\Player;
-use pocketmine\Server;
+use pocketmine\player\Player;
 use pocketmine\utils\TextFormat;
+use pocketmine\utils\Config;
 
 class healCommand extends Command {
 
-    public function __construct()
+    public function __construct(string $permission = null)
     {
-        parent::__construct("heal", "Fülle deine Herzensleiste auf!");
+        if ($permission !== null) {
+            $this->setPermission($permission);
+        }
+        parent::__construct("heal", "Heal yourself!");
     }
 
     public function execute(CommandSender $sender, string $commandLabel, array $args)
     {
+        $c = new Config(Main::getInstance()->getDataFolder() . "messages.yml", Config::YAML);
         if ($sender instanceof Player) {
-            if (!$sender->hasPermission("lc.heal")) {
-                $sender->sendMessage("§8[§bCore§8] §3» §4Du hast keine Rechte für diesen Befehl!");
-                return;
-            }
+
+            if (!$this->testPermission($sender, $this->getPermission())) return;
+
             $sender->setHealth(20);
-            $sender->sendMessage("§8[§bCore§8] §3» §fDeine Herzensleiste wurde aufgefüllt!");
+            $sender->sendMessage(Main::PREFIX . $c->get("heal"));
             return;
         }
-        $sender->sendMessage(TextFormat::RED . "Diesen Befehl kannst du nur Ingame ausführen.");
+        $sender->sendMessage(TextFormat::RED . $c->get("console"));
     }
 }

@@ -1,22 +1,17 @@
-# LittleCore #
+[![alt](https://github.com/Milchreisfan/LittleCore/blob/master/lc.png)](https://github.com/Milchreisfan/LittleCore)
+# LittleCore for PocketMine-MP 4 (PM4) #
 Ein Core für PocketMine-MP | A Core for PocketMine-MP
 
-# Discord: #
-- Trette dem LittleCore Discord bei!
-- Join the LittleCore discord!
-https://discord.gg/QhVSn855zE
-# Danke | Thanks: #
 
-- Ban -> https://github.com/tim03we/AdvancedBan
+# Info: #
+- This is the PM 4.0.0 Build!
+
+# Credits #
+
 - ChatClear -> https://github.com/Kay313/ClearChat
 
 # Sprache | Language: #
-- Deutsch | German: Version: 1.4.0
-- Englisch | English: Noch nicht unterstützt... | Not supported yet...
-
-# Information #
-- Ban wird erst in V2 unterstützt sein.
-- Ban will be supportet in V2.
+Just change the messages in config.yml :D
 
 # Befehle | Commands: #
 
@@ -41,6 +36,11 @@ https://discord.gg/QhVSn855zE
 - /jump
 - /speed
 - /nv
+- /dcinvite
+- /vanish
+- /info
+- /news
+- /itemid
 
 # Berechtigungen | Permissions: #
 
@@ -65,7 +65,13 @@ https://discord.gg/QhVSn855zE
 - /jump -> lc.jump
 - /speed -> lc.speed
 - /nv -> lc.nv
+- /dcinvite -> lc.dcinvite
+- /vanish -> lc.vanish
+- /info -> lc.info
+- /news -> lc.news
+- /itemid -> lc.itemid
 
 # Hilfe? | Support? #
 - Joine meinen Discord!
 - Join my discord!
+https://bit.ly/LittleCore-DC
