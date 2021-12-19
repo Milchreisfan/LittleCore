@@ -1,6 +1,6 @@
 [![alt](https://github.com/Milchreisfan/LittleCore/blob/main/lc.png)](https://github.com/Milchreisfan/LittleCore)
-# LittleCore for PocketMine-MP 4 (PM4) #
-Ein Core für PocketMine-MP | A Core for PocketMine-MP
+A **little**Core for pocketmine.
+(It's not finished yet. bruh so don't say "it's not a core")
 
 
 # Info: #
@@ -10,10 +10,15 @@ Ein Core für PocketMine-MP | A Core for PocketMine-MP
 
 - ChatClear -> https://github.com/Kay313/ClearChat
 
-# Sprache | Language: #
+# Language: #
 Just change the messages in config.yml :D
 
-# Befehle | Commands: #
+# Colors #
+
+If you want colored messages just add "&" and the color code in a message.
+For example: &1I'm a Example! (= dark blue)
+
+# Commands #
 
 - /sunrise
 - /day
@@ -43,7 +48,7 @@ Just change the messages in config.yml :D
 - /itemid
 - /rules
 
-# Berechtigungen | Permissions: #
+# Permissions #
 
 - /noon -> lc.noon
 - /day -> lc.day
@@ -73,5 +78,5 @@ Just change the messages in config.yml :D
 - /itemid -> lc.itemid
 - /rules -> lc.rules
 
-# Hilfe? | Support? #
+# Support? #
 - Create an issue
