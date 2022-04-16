@@ -1,3 +1,5 @@
+## DOESN'T GET UPDATES ANYMORE ## (Maybe in the future again...)
+
 [![alt](https://github.com/Milchreisfan/LittleCore/blob/main/lc.png)](https://github.com/Milchreisfan/LittleCore)
 A **little**Core for pocketmine.
 (It's not finished yet. bruh so don't say "it's not a core")
